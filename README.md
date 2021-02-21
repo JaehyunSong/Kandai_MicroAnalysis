@@ -3,6 +3,7 @@
 
 # 担当教員
 * 宋財泫 (そん じぇひょん; SONG JAEHYUN)
+* 関西大学総合情報学部 准教授
 * E-mail: song [at] kansai-u.ac.jp
 * Homepage: https://www.jaysong.net
 * オフィスアワー
