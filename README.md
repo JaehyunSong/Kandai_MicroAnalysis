@@ -1,0 +1,2 @@
+# Kandai_MicroAnalysis
+関西大学総合情報学部「ミクロ政治データ分析実習」
