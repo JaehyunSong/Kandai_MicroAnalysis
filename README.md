@@ -7,7 +7,7 @@
 * E-mail: song [at] kansai-u.ac.jp
 * Homepage: https://www.jaysong.net
 * オフィスアワー
-  * 毎週火曜日 14:00〜17:00 A棟 TA227研究室
+  * 毎週火曜日 14:00〜16:00 A棟 TA227研究室
 
 ## 講義資料
 
