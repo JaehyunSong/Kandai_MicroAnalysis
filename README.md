@@ -11,10 +11,11 @@
 * オフィスアワー: 毎週火曜日 14:00〜16:00 A棟 TA227研究室
 
 ## 講義資料
-
-* 国立情報学研究所（NII）のオンライン分析システム <!-- [![Binder](https://binder.cs.rcos.nii.ac.jp/badge_logo.svg)](https://jupyter.cs.rcos.nii.ac.jp/) -->
+<!--
+* 国立情報学研究所（NII）のオンライン分析システム [![Binder](https://binder.cs.rcos.nii.ac.jp/badge_logo.svg)](https://jupyter.cs.rcos.nii.ac.jp/)
   * 上記のリンクは初期設定を完了した人のみ使用可能
   * 初期設定は第2回の講義にて解説
+-->
 * スライドはPDFであり、動的な要素（動画、JavaScriptを利用した表など）は正しく表示されません。ただし、講義内容の理解に影響を与える問題ではございません。
 * 第4回以降は実習用資料（`.Rmd`）をダウンロードし、穴埋め形式でスライドを作成して頂くことになります。
   * 第4回以降のスライドは授業から3日後に公開します。
