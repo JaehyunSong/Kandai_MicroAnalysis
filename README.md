@@ -1,13 +1,14 @@
 # ミクロ政治データ分析実習
 関西大学総合情報学部「ミクロ政治データ分析実習」サポートページ
 
-## 担当教員
-* 宋財泫 (そん じぇひょん; SONG JAEHYUN)
-* 関西大学総合情報学部 准教授
-* E-mail: song [at] kansai-u.ac.jp
-* Homepage: https://www.jaysong.net
-* オフィスアワー
-  * 毎週火曜日 14:00〜16:00 A棟 TA227研究室
+## 講義情報
+* 担当教員: 宋財泫 (そん じぇひょん; SONG JAEHYUN)
+  * 関西大学総合情報学部 准教授
+  * E-mail: song [at] kansai-u.ac.jp
+  * Homepage: https://www.jaysong.net
+* 春学期 木曜日 第4時限 (14:40～16:10)
+* TC304教室（高槻キャンパス C棟 304教室）
+* オフィスアワー: 毎週火曜日 14:00〜16:00 A棟 TA227研究室
 
 ## 講義資料
 
