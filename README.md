@@ -38,6 +38,20 @@
 |14|可視化（3）| DL | DL | - | - |
 |15|データ分析のプロセス| DL | DL | - | - |
 
+---
+
+## NIIオンライン分析システム
+
+* 初期設定（1回のみ）
+   1. https://binder.cs.rcos.nii.ac.jp へアクセス
+   2. 「GitHub repository name or URL」欄に`https://github.com/JaehyunSong/Binder_R`を入力
+   3. 「launch」をクリック
+* 2回目以降
+   1. https://jupyter.cs.rcos.nii.ac.jp/ へアクセス
+   2. Named Seversリストから前回使用した分析環境を選択
+
+---
+
 ## 教科書
 
 * [Song Jaehyun・矢内勇生.『私たちのR: ベストプラクティスの探求』Web-book](https://www.jaysong.net/RBook)
