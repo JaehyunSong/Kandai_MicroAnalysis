@@ -43,6 +43,8 @@
 
 ## NIIオンライン分析システム
 
+関大LMSに動画資料のURLがあります。詳細は動画を参照してください。
+
 * 初期設定（1回のみ）
    1. https://binder.cs.rcos.nii.ac.jp へアクセス
    2. 「GitHub repository name or URL」欄に`https://github.com/JaehyunSong/Binder_R`を入力
