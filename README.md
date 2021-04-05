@@ -20,7 +20,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 
 |回||スライド|実習用資料|データ|参考資料|
 |:-:|:-|:-:|:-:|:-:|:-:|
-| 1|ガイダンス| [<a href = "Slide/Slide01.pdf" target="_blank" rel="noopener">DL</a>] | - | - | - |
+| 1|ガイダンス| [<a href = "Slide/Slide01.pdf" target="_blank">DL</a>] | - | - | - |
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | - |
 | 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | - | - | - |
 | 4|R Markdownと再現可能な研究| DL | 問題 / サンプル | - | - |
