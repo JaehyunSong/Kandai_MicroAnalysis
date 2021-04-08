@@ -22,7 +22,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 |:-:|:-|:-:|:-:|:-:|:-:|
 | 1|ガイダンス| [DL](Slide/Slide01.pdf) | - | - | - |
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | - |
-| 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | - | - | - |
+| 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | - | [`Micro02_01.csv`](Data/Micro02_01.csv)<br/>[`Micro02_02.xlsx`]((Data/Micro02_02.xlsx)) | - |
 | 4|R Markdownと再現可能な研究| DL | 問題 / サンプル | - | - |
 | 5|データ型| DL | DL | - | - |
 | 6|データ構造| DL | DL | DL | - |
