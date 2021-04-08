@@ -1,0 +1,244 @@
+---
+title: "ミクロ政治データ分析実習"
+subtitle: "第1回 イントロダクション"
+author: "<ruby>宋<rp>(</rp><rt>そん</rt><rp>)</rp></ruby>&nbsp;&nbsp;<ruby>財泫<rp>(</rp><rt>じぇひょん</rt><rp>)</rp></ruby>"
+institute: "関西大学総合情報学部"
+date: "2021/4/8 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["CSS/kandaipolis.css", "CSS/kandaipolis-fonts.css"]
+    lib_dir: libs
+    nature:
+      beforeInit: ["CSS/kandaipolis-macro.js"]
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: off
+      countIncrementalSlides: false
+    yolo: false
+    seal: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, eval = FALSE}
+# For print out the slide into pdf format
+xaringanBuilder::build_pdf("2021/Slide01.html")
+```
+
+```{r, include = FALSE}
+# Install and load a package for using fontawesome
+# remotes::install_github("mitchelloharawild/icons")
+library(icons)
+```
+
+```{r xaringanExtra, echo=FALSE}
+# Use tile view and panelset
+xaringanExtra::use_xaringan_extra(c("tile_view", "panelset"))
+```
+
+class: inverse, mline, center, middle
+
+# シラバス
+
+---
+
+# 授業概要
+
+* X曜日 第0時限（00:00～00:00）
+* XXX教室（X棟 000教室）
+* 統計言語[R](https://www.r-project.org/)の使い方
+  * Rの基本的な操作
+  * R Markdown
+  * データの入出力
+  * データのハンドリング（前処理）
+  * データの可視化
+* 統計学、確率、多変量解析、因果推論などについては解説しない
+  * これらの内容は「マクロ政治データ分析実習」で
+  * 「マクロ政治データ分析実習」ではRの使い方について解説しない
+
+---
+
+# 授業内容
+
+履修者の理解および進捗状況に応じて変更の可能性あり
+
+1. 第1回 イントロダクション
+2. 第2回 RとIDEの導入
+3. 第3回 Rの基本的な操作
+4. 第4回 R Markdownと再現可能な研究
+5. 第5回 データ型
+6. 第6回 データ構造
+7. 第7回 データ収集
+8. 第8回 Rプログラミング基礎
+9. 第9回 データハンドリング（1）
+10. 第10回 データハンドリング（2）
+11. 第11回 データハンドリング（3）
+12. 第12回 可視化（1）
+13. 第13回 可視化（2）
+14. 第14回 可視化（3）
+15. 第15回 データ分析のプロセス 
+
+---
+
+class: clear
+background-image: url("Figs/01/Diagram.png")
+background-size: contain
+
+---
+
+# 本講義の位置づけ
+
+### データにおける「ミクロ」と「マクロ」
+
+* ミクロデータ（個票データ）
+  * 主に個人データ
+* マクロデータ（集計データ）
+  * 国家、市区町村、選挙区など
+  * ミクロにおける主体（たとえば、人）の集合
+
+--
+
+### 分析における「ミクロ」と「マクロ」
+
+* 「ミクロ」のための手法、「マクロ」のための手法の区別はほぼない
+  * ほとんどぼ分析手法はミクロ、マクロ区別なく使用
+* 計量分析の主なツールでとしてR: 敷居が高い
+  * ミクロ政治データ分析演習
+* ツールの使い方を習得してから具体的な分析手法へ
+  * マクロ政治データ分析演習
+  
+---
+
+class: clear
+background-image: url("Figs/01/Process1.png")
+background-size: contain
+
+---
+
+class: clear
+background-image: url("Figs/01/Process2.png")
+background-size: contain
+
+---
+
+# オフィス・アワー（１）
+
+以下の時間帯は宋が研究室に必ずいる（アポイントメント不要）。
+
+* 毎週X曜日 00:00〜00:00 X棟 000研究室
+
+上記の時間帯**外**に相談を希望する場合は、事前にアポイントメントを取ること。
+
+* アポイントメントの方法
+   * 授業前後の対面
+   * メール: xxxx [at] xxxxxxx.ac.jp ([at]を@に置換すること)
+* ただし、木曜日0・0限目はTAによる対応も可
+
+関大LMSおよびメール、授業前後の対面による質問は随時受け付ける。
+
+---
+
+# LMSは常にチェック！
+
+本講義に関する**全ての連絡事項はLMS経由**で知らせる
+
+* 講義日程の変更
+* 評価形式の変更
+* 臨時課題
+* その他
+
+
+LMS右上の`r fontawesome("envelope", "solid")`を常にチェックすること
+
+---
+
+# 教科書・参考書
+
+#### 教科書
+
+* Song Jaehyun・矢内勇生.『私たちのR: ベストプラクティスの探求』E-book 
+  * 本講義内容を200%カバーする
+  * 無料! (https://www.jaysong.net/RBook)
+
+#### 参考書
+
+* [浅野正彦・矢内勇生. 2018.『Rによる計量政治学』オーム社](https://www.amazon.co.jp/dp/4274223132)
+  * リサーチデザイン + Rの使い方 + 回帰分析
+  * 後期の「マクロ政治データ分析実習」の教科書
+* [Hadley Wickham・Garrett Grolemund. 2017.『Rではじめるデータサイエンス』オライリージャパン](https://www.amazon.co.jp/dp/487311814X)
+  * 原著（英語）は無料で公開 (https://r4ds.had.co.nz/)
+
+---
+
+# 教科書と授業内容の対応
+
+1. RとIDEの導入
+  * 第2〜5章
+2. Rの基本的な操作
+  * 第7〜8章
+3. R Markdownと再現可能な研究
+  * 第25章
+4. データ型とデータ構造
+  * 第9〜10章
+5. Rプログラミング基礎
+  * 第11章（出来れば第12章も）
+6. データハンドリング
+  * 第13〜16章
+7. 可視化
+  * 第17〜20章
+
+---
+
+# 授業資料
+
+スライド及びデータ、コードは講義サポートページで公開する。
+
+* スライドにはリンクが貼られている場合もある。
+  * [青文字](https://www.jaysong.net)をクリックするとリンク先へ移動する。
+* スライド内のコードはRに直接貼り付けて実行できる。
+  * しかし、貼り付けるだけでプログラミング言語は習得できない。
+  * 手打ちで入力しながら結果を確認すること。
+  * できる限り、たくさんのエラーメッセージに出会うことが大事
+    * 成功経験しかないと、トラブルに対処できない
+
+---
+
+# 成績評価基準
+
+平常点 00% + 期末レポート 00%
+
+* 平常点: 授業への貢献度
+  * 4回**以上**の欠席 `r fontawesome("arrow-right")` 不可（欠席3回までは評価の対象）
+  * 毎回出席し、おとなしく講義を聞く `r fontawesome("arrow-right")` 15点
+  * 積極的に発言、質問をする `r fontawesome("arrow-right")` 30点
+* 期末レポート
+  * 与えられたデータを加工し、集計・可視化する。
+  * 不正行為は厳重に対応する。
+
+---
+class: clear, center, middle, inverse, mline
+
+# 今週の課題
+
+---
+
+# 今週の課題
+
+### 課題1
+
+以下の資料を参照し、自分のPCにRとR Studioを導入する。なるべく早めにインストールすること。問題が生じた場合、速やかに宋/TAに相談すること。
+
+* オプション1: 自分のPCに導入する
+   * [macOS](https://yukiyanai.github.io/jp/resources/docs/install-R_macOS.pdf)
+   * [Linux (Ubuntu)](https://yukiyanai.github.io/jp/resources/docs/install-R_ubuntu.pdf)
+   * [Windows](https://yukiyanai.github.io/jp/resources/docs/install-R_windows.pdf)
+* オプション2: クラウド版のR/RStudioを利用する
+   * NIIオンライン分析システムの利用（全OS使用可能）：LMS参照
+
+### 課題2
+
+教科書[第7章の第1、2節](https://www.jaysong.net/RBook/rbasic.html)を読んでおく。
+
+### 課題3
+
+ブラインドタッチに慣れておこう（Googleで「ブラインドタッチ」を検索）
