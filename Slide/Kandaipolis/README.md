@@ -9,7 +9,7 @@
 ---
 title: "ミクロ政治データ分析実習"
 subtitle: "第3回 Rの基本的な操作"
-author: "<ruby>宋<rp>(</rp><rt>そん</rt><rp>)</rp></ruby>&nbsp;&nbsp;<ruby>財泫<rp>(</rp><rt>じぇひょん</rt><rp>)</rp></ruby>"
+author: "宋財泫"
 institute: "関西大学総合情報学部"
 date: "2021/4/22 (updated: `r Sys.Date()`)"
 output:
