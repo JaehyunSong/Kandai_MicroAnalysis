@@ -22,7 +22,7 @@ editor_options:
 
 ```{r, echo = FALSE, eval = FALSE}
 # For print out the slide into pdf format
-xaringanBuilder::build_pdf("2021/Slide01.html")
+xaringanBuilder::build_pdf("~/Dropbox/Lecture/Kansai/GitHub/MicroAnalysis/Kandaipolis/Sample/Sample.html")
 ```
 
 ```{r, include = FALSE}
