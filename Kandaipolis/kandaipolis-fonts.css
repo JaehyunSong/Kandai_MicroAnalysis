@@ -14,6 +14,7 @@ body {
 }
 */
 
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400);
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,700,700i);
 
@@ -22,5 +23,5 @@ body {
 }
 
 .remark-code, .remark-inline-code { 
-  font-family: 'Ricty Diminished', monospace, 'Noto Sans JP'; 
+  font-family: 'Source Code Pro', 'Ricty Diminished', monospace, 'Noto Sans JP'; 
 }
