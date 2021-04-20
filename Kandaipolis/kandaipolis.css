@@ -38,7 +38,7 @@ pre {
 }
 
 .remark-slide table thead th { 
-  border-bottom: 1px solid #ddd; 
+  border-bottom: 1px solid #000000; 
 }
 
 th, td { 
@@ -248,9 +248,12 @@ hr, .mline h1::after {
 }
 
 .remark-inline-code {
-  background: #e7e8e2;
+  background: #F0F0F0;
   border-radius: 3px;
-  padding: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
   color: #000000;
 }
 
