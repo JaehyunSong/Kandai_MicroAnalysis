@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ミクロ政治データ分析実習</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="宋(そん)  財泫(じぇひょん)" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <link href="libs/tile-view-0.2.3.9000/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.3.9000/tile-view.js"></script>
+    <link href="libs/panelset-0.2.3.9000/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.3.9000/panelset.js"></script>
+    <link rel="stylesheet" href="CSS/kandaipolis.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/kandaipolis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ミクロ政治データ分析実習
+## 第1回 イントロダクション
+### <ruby>宋<rp>(</rp><rt>そん</rt><rp>)</rp></ruby>  <ruby>財泫<rp>(</rp><rt>じぇひょん</rt><rp>)</rp></ruby>
+### 関西大学総合情報学部
+### 2021/4/8 (updated: 2021-04-20)
+
+---
+
+
+
+
+
+
+
+
+class: inverse, mline, center, middle
+
+# シラバス
+
+---
+
+# 授業概要
+
+* 木曜日 第4時限（14:40～16:10）
+* TC304教室（高槻キャンパス C棟 304教室）
+* 統計言語[R](https://www.r-project.org/)の使い方
+  * Rの基本的な操作
+  * R Markdown
+  * データの入出力
+  * データのハンドリング（前処理）
+  * データの可視化
+* 統計学、確率、多変量解析、因果推論などについては解説しない
+  * これらの内容は「マクロ政治データ分析実習」で
+  * 「マクロ政治データ分析実習」ではRの使い方について解説しない
+
+---
+
+# 授業内容
+
+履修者の理解および進捗状況に応じて変更の可能性あり
+
+1. 第1回 イントロダクション
+2. 第2回 RとIDEの導入
+3. 第3回 Rの基本的な操作
+4. 第4回 R Markdownと再現可能な研究
+5. 第5回 データ型
+6. 第6回 データ構造
+7. 第7回 データ収集
+8. 第8回 Rプログラミング基礎
+9. 第9回 データハンドリング（1）
+10. 第10回 データハンドリング（2）
+11. 第11回 データハンドリング（3）
+12. 第12回 可視化（1）
+13. 第13回 可視化（2）
+14. 第14回 可視化（3）
+15. 第15回 データ分析のプロセス 
+
+---
+
+class: clear
+background-image: url("Figs/01/Diagram.png")
+background-size: contain
+
+---
+
+# 本講義の位置づけ
+
+### データにおける「ミクロ」と「マクロ」
+
+* ミクロデータ（個票データ）
+  * 主に個人データ
+* マクロデータ（集計データ）
+  * 国家、市区町村、選挙区など
+  * ミクロにおける主体（たとえば、人）の集合
+
+--
+
+### 分析における「ミクロ」と「マクロ」
+
+* 「ミクロ」のための手法、「マクロ」のための手法の区別はほぼない
+  * ほとんどぼ分析手法はミクロ、マクロ区別なく使用
+* 計量分析の主なツールでとしてR: 敷居が高い
+  * ミクロ政治データ分析演習
+* ツールの使い方を習得してから具体的な分析手法へ
+  * マクロ政治データ分析演習
+  
+---
+
+class: clear
+background-image: url("Figs/01/Process1.png")
+background-size: contain
+
+---
+
+class: clear
+background-image: url("Figs/01/Process2.png")
+background-size: contain
+
+---
+
+# オフィス・アワー（１）
+
+以下の時間帯は宋が研究室に必ずいる（アポイントメント不要）。
+
+* 毎週火曜日 14:00〜16:00 A棟 227研究室 (TA227)
+
+上記の時間帯**外**に相談を希望する場合は、事前にアポイントメントを取ること。
+
+* アポイントメントの方法
+   * 授業前後の対面
+   * メール: song [at] kansai-u.ac.jp ([at]を@に置換すること)
+* ただし、木曜日3・5限目はTAによる対応も可（次頁）
+
+関大LMSおよびメール、授業前後の対面による質問は随時受け付ける。
+
+---
+
+# オフィス・アワー（２）
+
+TAは3限目から5限目まで学内にいる（4限目は授業サポート）。
+
+* TAさん（+宋）に質問・相談したい場合は
+   * 毎週木曜日3限目（13:00〜14:30）、5限目（16:20〜17:50）
+   * A棟 227研究室（宋の研究室）
+   * アポイントメント不要
+   * 密にならないように、研究室には1回、2名まで入れる
+
+---
+
+# 関大LMSは常にチェック！
+
+本講義に関する**全ての連絡事項は関大LMS経由**で知らせる
+
+* 講義日程の変更
+* 評価形式の変更
+* 臨時課題
+* その他
+
+
+LMS右上の&lt;svg viewBox="0 0 512 512" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"&gt;&lt;/path&gt;&lt;/svg&gt;を常にチェックすること
+
+* 講師は履修者全員の既読・未読がチェックできる
+
+---
+
+# 教科書・参考書
+
+#### 教科書
+
+* Song Jaehyun・矢内勇生.『私たちのR: ベストプラクティスの探求』E-book 
+  * 本講義内容を200%カバーする
+  * 無料! (https://www.jaysong.net/RBook)
+
+#### 参考書
+
+* [浅野正彦・矢内勇生. 2018.『Rによる計量政治学』オーム社](https://www.amazon.co.jp/dp/4274223132)
+  * リサーチデザイン + Rの使い方 + 回帰分析
+  * 後期の「マクロ政治データ分析実習」の教科書
+* [Hadley Wickham・Garrett Grolemund. 2017.『Rではじめるデータサイエンス』オライリージャパン](https://www.amazon.co.jp/dp/487311814X)
+  * 原著（英語）は無料で公開 (https://r4ds.had.co.nz/)
+
+---
+
+# 教科書と授業内容の対応
+
+1. RとIDEの導入
+  * 第2〜5章
+2. Rの基本的な操作
+  * 第7〜8章
+3. R Markdownと再現可能な研究
+  * 第25章
+4. データ型とデータ構造
+  * 第9〜10章
+5. Rプログラミング基礎
+  * 第11章（出来れば第12章も）
+6. データハンドリング
+  * 第13〜16章
+7. 可視化
+  * 第17〜20章
+
+---
+
+# 授業資料
+
+スライド及びデータ、コードは[講義サポートページ](https://github.com/JaehyunSong/Kandai_MicroAnalysis)で公開する。
+
+* スライドにはリンクが貼られている場合もある。
+  * [青文字](https://www.jaysong.net)をクリックするとリンク先へ移動する。
+* スライド内のコードはRに直接貼り付けて実行できる。
+  * しかし、貼り付けるだけでプログラミング言語は習得できない。
+  * 手打ちで入力しながら結果を確認すること。
+  * できる限り、たくさんのエラーメッセージに出会うことが大事
+    * 成功経験しかないと、トラブルに対処できない
+
+---
+
+# 成績評価基準
+
+平常点 30% + 期末レポート 70%
+
+* 平常点: 授業への貢献度
+  * 4回**以上**の欠席 &lt;svg viewBox="0 0 448 512" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; 不可（欠席3回までは評価の対象）
+  * 毎回出席し、おとなしく講義を聞く &lt;svg viewBox="0 0 448 512" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; 15点
+  * 積極的に発言、質問をする &lt;svg viewBox="0 0 448 512" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; 30点
+* 期末レポート
+  * 与えられたデータを加工し、集計・可視化する。
+  * 不正行為は厳重に対応する。
+
+---
+class: clear, center, middle, inverse, mline
+
+# 今週の課題
+
+---
+
+# 今週の課題
+
+### 課題1
+
+以下の資料を参照し、自分のPCにRとR Studioを導入する。なるべく早めにインストールすること。問題が生じた場合、速やかに宋/TAに相談すること。
+
+* オプション1: 自分のPCに導入する
+   * [macOS](https://yukiyanai.github.io/jp/resources/docs/install-R_macOS.pdf)
+   * [Linux (Ubuntu)](https://yukiyanai.github.io/jp/resources/docs/install-R_ubuntu.pdf)
+   * [Windows](https://yukiyanai.github.io/jp/resources/docs/install-R_windows.pdf)
+* オプション2: クラウド版のR/RStudioを利用する
+   * NIIオンライン分析システムの利用（全OS使用可能）：関大LMS参照
+
+### 課題2
+
+教科書[第7章の第1、2節](https://www.jaysong.net/RBook/rbasic.html)を読んでおく。
+
+### 課題3
+
+ブラインドタッチに慣れておこう（Googleで「ブラインドタッチ」を検索）
+
+---
+
+# Rインストールの相談
+
+以下のケースの場合、宋 or TAが対面で対応する
+
+1. 自分でR/RStudioの導入が出来ない
+2. NIIオンライン分析システムがうまく設定できない
+3. 何もかも分からないので、一から相談したい
+
+
+* 日時
+   * 宋 + TA: 4月8日（木）16:20〜17:50 &lt;svg viewBox="0 0 448 512" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; **本日**
+   * 宋: 4月12日（月）14:00〜17:00
+   * 宋: 4月13日（火）14:00〜17:00
+   * 宋: 4月14日（水）13:00〜14:30
+   * TA: 4月15日（木）13:00〜14:30
+* 場所: 宋の研究室（A棟227研究室）
+* PCを持参すること（これは当たり前か）
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="CSS/kandaipolis-macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": false,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
