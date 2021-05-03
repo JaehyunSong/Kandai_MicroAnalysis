@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ミクロ政治データ分析実習</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="宋(そん)  財泫(じぇひょん)" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30}) })</script>
+    <link rel="stylesheet" href="CSS/kandaipolis.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/kandaipolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="libs/countdown-0.3.5/countdown.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ミクロ政治データ分析実習
+## 第4回 R Markdownと再生可能な研究
+### <ruby>宋<rp>(</rp><rt>そん</rt><rp>)</rp></ruby>  <ruby>財泫<rp>(</rp><rt>じぇひょん</rt><rp>)</rp></ruby>
+### 関西大学総合情報学部
+### 2021/5/6 (updated: 2021-05-03)
+
+---
+
+
+
+
+
+
+# 始める前に
+
+### 第3回の講義動画の内容について
+
+* NIIオンライン分析システムを使用している場合、macOS、Windows関係なく、「NIIオンライン分析システム」の箇所を参照する。
+   * こちらはクラウド版のR/RStudio
+   * ここで作業したコード、図表、データなどはすべてサーバー上に保存され、自分のPCには保存されない。
+   * 課題提出などのために自分のPCに保存する必要がある場合は、サーバーからファイルをダウンロードする（本日講義の後半に解説）。
+* 自分のPCに直接R/RStudioをインストールした場合、自分のOSの箇所を参照する。
+
+### その他
+
+* NIIオンライン分析システムを使用している場合、「初期設定」は1回のみ
+   * 初期設定を行う度に新しいサーバーを立ち上げることになるので注意すること
+
+---
+
+class: inverse, mline, center, middle
+
+# R Markdownとは
+
+---
+
+# R Markdownとは
+
+* R + Markdown
+* Rのコードと結果、そして文章が一つの文書としてまとまったもの
+  * 文書の形式はHTML、Microsoft Word（`.docx`）、PDFで出力される
+  * スライド、ホームページなども作成可能
+  * 本講義のスライドもR Markdownで作成（{xaringan}）
+  * 本講義の教科書もR Markdownで作成（{bookdown}）
+  * 宋のホームページもR Markdownで作成（{blogdown}）
+
+---
+
+# Markdownとは
+
+### プレーンテキストとリッチテキスト
+
+* Plain text: 書式情報などが含まれていない純粋なテキストのみで構成されている文書
+  * macOSの「テキストエディット」、Windowsの「メモ帳」など
+* Rich text: 書式情報だけでなく、図表なども含まれる文書
+  * Microsoft Word、Apple Pagesなど
+* 書式情報の例: 文書の余白、行間の幅、文字サイズ、太さ、色
+* リッチテキストには文字情報以外にも様々な書式情報が含まれているため、サイズが大きく、パソコンへの負担も大きい
+
+---
+
+# プレーンからリッチへ
+
+### Markup言語とは
+
+* プレーンテキストをリッチテキストへ変換するための言語
+* HTMLが代表的
+  * 例: `&lt;b&gt;`と`&lt;/b&gt;`で囲まれた文字を太字として出力
+
+**Input**
+
+```html
+この文字は&lt;b&gt;太字&lt;/b&gt;にしましょう。&lt;br/&gt;
+この文字は&lt;a href = "https://www.jaysong.net"&gt;リンク&lt;/a&gt;にしましょう。
+```
+
+**Output**
+
+この文字は**太字**にしましょう。&lt;br/&gt;
+この文字は[リンク](https://www.jaysong.net)にしましょう。
+
+---
+
+# Markdownとは
+
+* Mark**down**: Mark**up**言語の軽量版
+* 文章作成に必要なタグ（tag）をより簡単に記述できる。
+* ブラインドタッチに慣れればWordよりも素早く文書を作成することができるようになる。
+
+**Markup**の場合（HTML）
+
+```
+この文字は&lt;b&gt;太字&lt;/b&gt;にしましょう。&lt;br/&gt;
+この文字は&lt;a href = "https://www.jaysong.net"&gt;リンク&lt;/a&gt;にしましょう。
+```
+
+**Markdown**の場合
+
+```
+この文字は**太字**にしましょう。
+
+この文字は[リンク](https://www.jaysong.net)にしましょう。
+```
+
+---
+
+# Markup vs. Markdown
+
+### 表の作成
+
+.pull-left[
+
+**Markup**
+
+```html
+&lt;table&gt;
+    &lt;thead style = "font-weight:bold;"&gt;
+        &lt;td&gt;ID&lt;/td&gt;
+        &lt;td&gt;Name&lt;/td&gt;
+    &lt;/thead&gt;
+    &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;Song&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;Kojima&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+```
+
+]
+
+.pull-right[
+
+**Markdown**
+
+```markdown
+| ID | Name |
+|----|------|
+| 1  | Song |
+| 2  |Kojima|
+```
+
+**Output**
+
+| ID | Name |
+|----|------|
+| 1  | Song |
+| 2  |Kojima|
+
+]
+
+---
+
+# Markup vs. Markdown
+
+### 箇条書き
+
+.pull-left[
+
+**Markup**
+
+```html
+&lt;ul&gt;
+  &lt;li&gt;箇条書き1&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;箇条書き1A&lt;/li&gt;
+      &lt;li&gt;箇条書き1B&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;li&gt;箇条書き2&lt;/li&gt;
+  &lt;li&gt;箇条書き3&lt;/li&gt;
+&lt;/ul&gt;
+```
+
+]
+
+.pull-right[
+
+**Markdown**
+
+```markdown
+* 箇条書き1
+  * 箇条書き1A
+  * 箇条書き1B
+* 箇条書き2
+* 箇条書き3
+```
+
+**Output**
+
+* 箇条書き1
+  * 箇条書き1A
+  * 箇条書き1B
+* 箇条書き2
+* 箇条書き3
+
+]
+
+---
+
+class: inverse, mline, middle, center
+
+# とりあえずKnit
+
+---
+
+# `.Rmd`ファイルの生成
+
+* File &gt; New File &gt; RMarkdown ...
+* 何も触らず、OKをクリック
+* クラウド版RStudioの場合
+  * Sourceペイン上段の![:height 25px](Figs/04/Config.png)からPreview in Viewer Paneを選択
+  * チェックしない場合、結果ファイルが新しいウィンドウとして出力されるため、面倒
+* ファイルを保存（File &gt; Save）
+  * ⌘+S（macOS）、または Ctrl + S (Windows)
+* Sourceペイン上段の![:height 25px](Figs/04/Knit.png)をクリック
+  * Knit: 「ニット」と読む
+
+---
+
+class: inverse
+background-image: url("Figs/04/First_Knit.png")
+background-size: contain
+
+---
+
+# YAMLヘッダー
+
+`.Rmd`ファイル最上段に位置する文書の情報に関するデータ
+
+```yaml
+---
+title: "Untitled"
+author: "Kandai Taro"
+date: "2/21/2021"
+output: html_document
+---
+```
+
+* `title`: 文書のタイトル
+* `author`: 文書の作成者
+* `date`: 日付
+  * 最後にKnitした日にする場合、
+````yaml
+date: `r Sys.Date()`
+````
+* `output`: 出力形式
+* その他オプション多数
+  * YAMLヘッダーの詳細は[R Markdown Cheetsheet](https://rstudio.com/wp-content/uploads/2016/11/Rmarkdown-cheatsheet-2.0_ja.pdf)などを参照
+
+---
+class: inverse, mline, center, middle
+
+# Markdownの文法
+
+---
+
+# 文章の改行
+
+* 2回改行
+
+.pull-left[
+
+**Input**
+
+```markdown
+これは文章1です。
+これは文章2です。
+```
+
+**Output**
+
+これは文章1です。
+これは文章2です。
+
+]
+
+.pull-right[
+
+**Input**
+
+```markdown
+これは文章1です。
+
+これは文章2です。
+```
+
+**Output**
+
+これは文章1です。
+
+これは文章2です。
+
+]
+
+---
+
+# 強調
+
+* 英語の強調はイタリック、日本語の強調は太字を使用
+
+**Input**
+
+```r
+文章の一部を**太字**にしてみましょう。
+
+Canada, France, Germany, Italy, *Japan*, UK, and USA.
+
+~~取り消し線~~はあまり使わないかも。
+
+&lt;u&gt;アンダーライン&lt;/u&gt;はHTMLタグを使います。
+```
+
+**Output**
+
+文章の一部を**太字**にしてみましょう。
+
+Canada, France, Germany, Italy, *Japan*, UK, and USA.
+
+~~取り消し線~~はあまり使わないかも。
+
+&lt;u&gt;アンダーライン&lt;/u&gt;はHTMLタグを使います。
+
+---
+
+# 見出し
+
+* `#` + 半角スペース + 見出し（`#`が多いほど小さくなる）
+
+**Input**
+
+```markdown
+# 見出し1 (ヘッディング1)
+## 見出し2 (ヘッディング2)
+### 見出し3 (ヘッディング3)
+#### 見出し4 (ヘッディング4)
+```
+
+**Output**
+
+&lt;p style="font-size:3em;margin-top:0px;margin-bottom:0px;"&gt;見出し1  (ヘッディング1)&lt;/p&gt;
+&lt;p style="font-size:2.5em;margin-top:0px;margin-bottom:0px;"&gt;見出し2  (ヘッディング2)&lt;/p&gt;
+&lt;p style="font-size:2em;margin-top:0px;margin-bottom:0px;"&gt;見出し3  (ヘッディング3)&lt;/p&gt;
+&lt;p style="font-size:1.5em;margin-top:0px;margin-bottom:0px;"&gt;見出し4  (ヘッディング4)&lt;/p&gt;
+
+---
+
+# 水平線
+
+* 任意の行に`---`を挿入
+* 章と章の区切り、節と節の区切りなどに使用
+
+**Input**
+
+```markdown
+文章1
+
+---
+
+文章2
+```
+
+**Output**
+
+文章1
+
+&lt;hr/&gt;
+
+文章2
+
+---
+
+# 箇条書き（順序なし）
+
+* `*` + 半角スペース + 文字列
+* 階層構造にする場合、`*`の前に半角スペースを3個以上入れる
+* `*`の代わりに`-`も可
+
+.pull-left[
+
+**Input**
+
+```markdown
+* リスト1
+* リスト2
+   * リスト2-1
+      * リスト2-1-1
+      * リスト2-1-2
+   * リスト2-1
+* リスト3
+```
+
+]
+
+.pull-right[
+
+**Output**
+
+* リスト1
+* リスト2
+   * リスト2-1
+      * リスト2-1-1
+      * リスト2-1-2
+   * リスト2-1
+* リスト3
+
+]
+
+---
+
+# 箇条書き（順序付き）
+
+* `1.` + 半角スペース + 文字列
+* `1.`の箇所は任意の数字でもOK。`1.`、`2.`、...も可
+* 階層構造にする場合、`*`の前に半角スペースを2個以上入れる
+
+.pull-left[
+
+**Input**
+
+```markdown
+1. リスト1
+2. リスト2
+   1. リスト2-1
+      1. リスト2-1-1
+      2. リスト2-1-2
+   2. リスト2-1
+3. リスト3
+```
+
+]
+
+.pull-right[
+
+**Output**
+
+1. リスト1
+2. リスト2
+   1. リスト2-1
+      1. リスト2-1-1
+      2. リスト2-1-2
+   2. リスト2-1
+3. リスト3
+
+]
+
+---
+
+# 数式
+
+* 文中数式は`$数式$`、独立した行の数式は`$$`で囲む
+* `\(\LaTeX\)` の数式表記法を理解する必要がある
+
+**Input**
+
+```markdown
+文中の数式の例: `\(e = mc^2\)`
+
+独立した数式の例は、
+
+$$
+y_i \sim \text{Normal}(\mathbf{X} \boldsymbol{\beta}, \sigma).
+$$
+```
+
+**Output**
+
+文中の数式の例: `\(e = mc^2\)`
+
+独立した数式の例は、
+
+$$
+y_i \sim \text{Normal}(\mathbf{X} \boldsymbol{\beta}, \sigma).
+$$
+
+---
+
+# 表
+
+* 行は改行で、列は`|`で区切る
+* 1行目は表のヘッダーであり、`|---|`で区切る（`-`は1個以上でOK）
+  * `|---|`は左揃え、`|---:|`は右揃え、`|:---:|`は中央揃え
+
+.pull-left[
+
+**Input**
+
+```markdown
+|ID |Name   |Birth|Pref   |
+|:-:|-------|----:|-------|
+|1  |Ogura  |1852 |Tokyo  |
+|2  |Tsurumi|1858 |Tochigi|
+|3  |Yoshida|1858 |Fukuoka|
+|4  |Hotta  |1859 |Chiba  |
+|5  |Inoue  |1847 |Nagano |
+|6  |Tezuka |1862 |Tokyo  |
+|7  |Shikata|1857 |Saitama|
+|8  |Nomura |1855 |Gunma  |
+```
+
+]
+
+.pull-right[
+
+**Output**
+
+|ID |Name   |Birth|Pref   |
+|:-:|-------|----:|-------|
+|1  |Ogura  |1852 |Tokyo  |
+|2  |Tsurumi|1858 |Tochigi|
+|3  |Yoshida|1858 |Fukuoka|
+|4  |Hotta  |1859 |Chiba  |
+|5  |Inoue  |1847 |Nagano |
+|6  |Tezuka |1862 |Tokyo  |
+|7  |Shikata|1857 |Saitama|
+|8  |Nomura |1855 |Gunma  |
+
+]
+
+---
+
+# コメント
+
+出力に影響されないコメントを入れる場合
+* `&lt;!--`と`--&gt;`内に囲む
+* `&lt;!--`と`--&gt;`の間の文章は出力されない
+* 自分用のメモ、とりあえず出力させない内容などに使用
+* チャンク内コメントは`#`（チャンクは後に解説）
+
+.pull-left[
+
+**Input:**
+```r
+これは文章1です。
+
+&lt;!--
+これはコメントです。
+--&gt;
+
+これは文章2です。
+```
+
+]
+
+.pull-right[
+
+**Output:**
+
+これは文章1です。
+
+&lt;!--
+これはコメントです。
+--&gt;
+
+これは文章2です。
+
+]
+
+---
+
+# その他の文法について
+
+[教科書第25章](https://www.jaysong.net/RBook/rmarkdown.html)を参照
+
+* 図の挿入
+* 脚注
+* 引用など
+* HTMLタグを直接入れることも可能
+  * 出力形式がHTMLならJavaScriptも可
+* [R Markdown Cheetsheet](https://rstudio.com/wp-content/uploads/2016/11/Rmarkdown-cheatsheet-2.0_ja.pdf)も参照
+
+---
+
+class: inverse, mline, middle, center
+
+# RとMarkdownの結合
+
+---
+
+# チャンク（Chunk）
+
+Rのコードを挿入する領域
+* ```` ```{r} ````と```` ``` ````で囲む
+  * チャンクの外にコードを書いても文章として認識する
+* コードの出力 &gt; 結果の出力の順番
+
+**Input**
+
+````markdown
+ここはチャンクの外
+
+ここに書いたものは文章として扱われる。
+
+```{r}
+x &lt;- 5 # 円の半径
+print(3.14 * x^2)
+```
+
+ここに書いたのも文章
+````
+
+```` ````
+
+---
+
+# 結果
+
+* コードと結果が同時に出力される
+
+**Output**
+
+ここはチャンクの外
+
+ここに書いたものは文章として扱われる。
+
+
+```r
+x &lt;- 5 # 円の半径
+print(3.14 * x^2)
+```
+
+```
+## [1] 78.5
+```
+
+ここに書いたのも文章
+
+---
+
+# チャンクのオプション
+
+`{r}`の箇所にオプションが指定可能（`,`の後）
+* チャンクにDay4-1という名前を付ける
+  * チャンク名の場合`,`は不要。オプションはチャンク名の後に付ける
+  * `{r Day4-1}`
+* コードのみ出力し、結果は出力しない
+   * `{r, eval = FALSE}`
+* 結果のみ出力し、コードは出力しない
+   * `{r, echo = FALSE}`
+* 出力される図の幅を8インチ、高さを10インチに
+   * `{r, fig.width = 5, fig.height = 10}`
+* 出力される図を中央揃えに
+   * `{r, fig.align = center}`
+* 警告メッセージを隠す
+   * `{r, warning = FALSE}`
+* 他にも数十のオプションの指定が可能
+   * 詳しくは[R Markdown Cheetsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)を参照
+---
+
+# インラインコード
+
+文章内にRコードの結果を埋め込む場合
+  * `` `r ``と`` ` ``の間にコードを挿入
+
+**Input:**
+````markdown
+```{r}
+x &lt;- 5 # 円の半径
+```
+
+円の半径は`r x`、面積は`r 3.14 * x^2`です。
+````
+
+
+
+**Output:**
+
+```r
+x &lt;- 5 # 円の半径
+```
+
+円の半径は5、面積は78.5です。
+
+---
+
+class: inverse, mline, middle, center
+
+# R Markdownと再生可能な研究
+
+---
+
+# 再現可能性と再生可能性
+
+国里(2020)&lt;sup&gt;1&lt;/sup&gt;による定義
+* 学会、分野によっては正反対の概念になる場合もある (Barba, 2018&lt;sup&gt;2&lt;/sup&gt;)
+
+#### 再生可能性 (Reproducibility)
+
+* 同じデータ + 同じ方法 = 同じ結果
+* R Markdownの主な目的は**再生可能性**
+
+#### 再現可能性 (Replicability)
+
+* 新しいデータ + 同じ方法 = 同じ結果
+* 新しいデータ + 違う方法 = 同じ結果
+
+.footnote[
+[1] [国里愛彦. 2020.「再現可能な心理学研究入門」『専修大学人間科学論集:心理学篇』10. 21-33.](http://doi.org/10.34360/00011014)
+
+[2] [Lorena A. Barba. 2018. "Terminologies for Reproducible Research." *ArXiv.* 1802.03311](https://arxiv.org/abs/1802.03311)
+]
+
+---
+
+# R Markdownと再生可能性
+
+1. 具体的にどのような手順で分析が行われたかが分かる
+  * コードを記録&amp;公開
+
+2. コードに対する説明が付いている
+  * 自分が書いたコードであっても、昔書いたコードは読みにくい
+  * 過去、自分が行った分析の再生する出来ない場合も
+     * 今、教壇に立っている人の話ではない
+
+3. コードと結果が同時に照会できる
+  * わざわざRを立ち上げなくても、その場で分析の手順が分かる
+
+---
+
+# 再生可能な研究を目指して
+
+* 可能な限り、詳細な説明を付ける
+  * 文章領域では「以下のコードがどのような目的で書かれたコードであるか」などを明示する。
+  * チャンク内にもこまめにコメント（`#`）を付ける
+     * 理想としては一行ごとにコメントを付ける
+
+**悪い例**
+
+```r
+x &lt;- rep(NA, 5)
+```
+
+**良い例**
+
+```r
+x &lt;- rep(NA, 5) # 欠損値で埋められた長さ5のベクトル
+```
+
+---
+
+# 再生可能な研究を目指して
+
+* コードを分かりやすく書く
+  * 長いオブジェクト名を避ける
+  * 分かりやすいオブジェクト名
+  * 適宜スペースと字下げを入れるなど
+  * 読みやすいコードの書き方: [教科書 第11.2章](https://www.jaysong.net/RBook/programming.html#programming-style)
+
+.panelset[
+.panel[.panel-name[例1]
+
+**悪い例**
+
+```r
+# 5人の数学成績
+variable1 &lt;- c(30, 91, 43, 77, 100)
+```
+
+**良い例**
+
+```r
+mathematicsscore &lt;- c(30, 91, 43, 77, 100)
+```
+]
+
+.panel[.panel-name[例2]
+
+**悪い例**
+
+```r
+# 5人の数学成績
+mathematicsscore &lt;- c(30, 91, 43, 77, 100)
+```
+
+**良い例**
+
+```r
+MathScore  &lt;- c(30, 91, 43, 77, 100) # キャメルケース (大文字)
+mathScore  &lt;- c(30, 91, 43, 77, 100) # キャメルケース (小文字)
+math_score &lt;- c(30, 91, 43, 77, 100) # スネークケース
+```
+]
+
+.panel[.panel-name[例3]
+
+**悪い例**
+
+```r
+Fit1 &lt;- lm(Y~X1+X2+X3+X4+X5,data=Dataset,weights=W)
+```
+
+**良い例**
+
+```r
+Fit1 &lt;- lm(Y ~ X1 + X2 + X3 + X4 + X5,
+           data = Dataset, weights = W)
+```
+]
+
+.panel[.panel-name[例4a]
+
+**悪い例**
+
+```r
+# 1から10までの値それぞれに2をかける
+for(i in 1:10){
+print(i*2)
+}
+```
+]
+
+.panel[.panel-name[例4b]
+
+**良い例**
+
+```r
+# 1から10までの値それぞれに2をかける
+for (i in 1:10) {
+    print(i * 2)
+}
+```
+]
+
+]
+
+---
+
+# 再生可能な研究を目指して
+
+* データについても詳細に書く
+  * どのように収集されたデータであるのか
+  * どのような変数があるのか
+
+---
+
+class: inverse, mline, center, middle
+
+# まとめ
+
+---
+
+# 今回の内容
+
+よく分からない箇所は[教科書](https://www.jaysong.net/RBook/)を読み返す or 宋&amp;TAに質問 (できれば、LMSで)
+
+* R Markdown: [第25章](https://www.jaysong.net/RBook/rmarkdown.html)
+
+---
+
+# 課題
+
+今回以降の練習はR Markdownを利用する。
+
+1. 今回講義用のプロジェクトを作成する。
+2. LMSから課題用資料の「問題」と「サンプル」をダウンロードし、プロジェクトのフォルダーに保存する。
+   * NIIオンライン分析システムの場合、サーバーにアップロード
+   * **ファイル名は変更しない**こと
+3. プロジェクトからRStudioを起動し、`.Rmd`ファイルを開く
+4. Knitし、結果を確認する。
+   * Source Pane上段のKnitをクリックするか、「⌘ + Shift + K」(macOS)、「Ctrl + Shift + K」(Windows)を推す。
+5. サンプルファイル（`MicroAnalysis_Day04_Answer.html`）を開く。
+6. サンプルのような体裁になるように問題ファイルを修正する。
+   * 随時Knitしながら結果を確認する。
+7. 完成後、`.Rmd`ファイルと生成された`.html`ファイルを関大LMSに提出する。
+8. **期限は2021年5月6日（講義日）の23時59分とする。**
+9. 答案は次回の講義までに公開する。
+
+---
+
+# 課題提出の方法
+
+NIIオンライン分析システムの場合、`.Rmd`ファイルと`.html`ファイルを自分のPCにダウンロードする必要がある。
+* NIIオンライン分析システムはクラウド版のR/RStudioであるため、すべての作業物はサーバー上のみに記録される。
+
+### 方法
+
+1. jupyter hub画面でダウンロードするファイルの左のチェックボックスにチェック（☑）を入れる。
+2. 上段の「Download」をクリックする。
+3. ダウンロードしたファイルを提出する。
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="CSS/kandaipolis-macro.js"></script>
+<script src="libs/countdown-0.3.5/countdown.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"highlightSpans": false,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
