@@ -22,7 +22,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 |:-:|:-|:-:|:-:|:-:|
 | 1|ガイダンス| [DL](Slide/Slide01.pdf) | - | - |
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | [教科書第2章](https://www.jaysong.net/RBook/aboutR.html) <br/> [教科書第3章](https://www.jaysong.net/RBook/installation.html)  |
-| 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | - | [教科書第7章](https://www.jaysong.net/RBook/rbasic.html) |
+| 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | [Micro02_01.csv](Data/Micro02_01.csv) <br/> [Micro02_01.xlsx](Data/Micro02_01.xlsx) | [教科書第7章](https://www.jaysong.net/RBook/rbasic.html) |
 | 4|R Markdownと再現可能な研究| [DL](Slide/Slide04.pdf) | - | [教科書第25章](https://www.jaysong.net/RBook/rmarkdown.html) |
 | 5|データ型| [DL](Slide/Slide05.pdf) | DL | [教科書第9章](https://www.jaysong.net/RBook/datatype.html) |
 | 6|データ構造| DL | DL | [教科書第10章](https://www.jaysong.net/RBook/datastructure.html) |
