@@ -24,15 +24,15 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | [教科書第2章](https://www.jaysong.net/RBook/aboutR.html) <br/> [教科書第3章](https://www.jaysong.net/RBook/installation.html)  |
 | 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | [Micro02_01.csv](Data/Micro02_02.csv) <br/> [Micro02_01.xlsx](Data/Micro02_01.xlsx) | [教科書第7章](https://www.jaysong.net/RBook/rbasic.html) |
 | 4|R Markdownと再現可能な研究| [DL](Slide/Slide04.pdf) | - | [教科書第25章](https://www.jaysong.net/RBook/rmarkdown.html) |
-| 5|データ型| [DL](Slide/Slide05.pdf) | DL | [教科書第9章](https://www.jaysong.net/RBook/datatype.html) |
+| 5|データ型| [DL](Slide/Slide05.pdf) | - | [教科書第9章](https://www.jaysong.net/RBook/datatype.html) |
 | 6|データ構造| DL | DL | [教科書第10章](https://www.jaysong.net/RBook/datastructure.html) |
-| 8|Rプログラミング基礎| DL | DL | [教科書第11章](https://www.jaysong.net/RBook/programming.html) <br/> [教科書第12章](https://www.jaysong.net/RBook/functions.html) |
+| 8|Rプログラミング基礎| DL | - | [教科書第11章](https://www.jaysong.net/RBook/programming.html) <br/> [教科書第12章](https://www.jaysong.net/RBook/functions.html) |
 | 9|データハンドリング（1）| DL | DL | [教科書第13章](https://www.jaysong.net/RBook/datahandling1.html) <br/> [教科書第14章](https://www.jaysong.net/RBook/datahandling2.html) <br/> [教科書第15章](https://www.jaysong.net/RBook/factor.html) <br/> [教科書第16章](https://www.jaysong.net/RBook/tidydata.html)|
-|10|データハンドリング（2）| DL | DL | 同上 |
-|11|データハンドリング（3）| DL | DL | 同上 |
+|10|データハンドリング（2）| DL | - | 同上 |
+|11|データハンドリング（3）| DL | - | 同上 |
 |12|可視化（1）| DL | DL | [教科書第17章](https://www.jaysong.net/RBook/visualization1.html) <br/> [教科書第18章](https://www.jaysong.net/RBook/visualization2.html) <br/> [教科書第19章](https://www.jaysong.net/RBook/visualization3.html) <br/>  |
-|13|可視化（2）| DL | DL | 同上 |
-|14|可視化（3）| DL | DL | 同上 |
+|13|可視化（2）| DL | - | 同上 |
+|14|可視化（3）| DL | - | 同上 |
 |15|データ分析のプロセス| DL | - | - |
 
 ---
