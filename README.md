@@ -26,7 +26,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 | 4|R Markdownと再現可能な研究| [DL](Slide/Slide04.pdf) | - | [教科書第25章](https://www.jaysong.net/RBook/rmarkdown.html) |
 | 5|データ型| [DL](Slide/Slide05.pdf) | - | [教科書第9章](https://www.jaysong.net/RBook/datatype.html) |
 | 6|データ構造| [DL](Slide/Slide06.pdf) | [DL](Data/Micro06.csv) | [教科書第10章](https://www.jaysong.net/RBook/datastructure.html) |
-| 7|Rプログラミング基礎| DL | - | [教科書第11章](https://www.jaysong.net/RBook/programming.html) <br/> [教科書第12章](https://www.jaysong.net/RBook/functions.html) |
+| 7|Rプログラミング基礎| [DL](Slide/Slide07.pdf) | - | [教科書第11章](https://www.jaysong.net/RBook/programming.html) <br/> [教科書第12章](https://www.jaysong.net/RBook/functions.html) |
 | 8|データハンドリング（1）| DL | DL | [教科書第13章](https://www.jaysong.net/RBook/datahandling1.html) <br/> [教科書第14章](https://www.jaysong.net/RBook/datahandling2.html) <br/> [教科書第15章](https://www.jaysong.net/RBook/factor.html) <br/> [教科書第16章](https://www.jaysong.net/RBook/tidydata.html)|
 | 9|データハンドリング（2）| DL | - | 同上 |
 |10|データハンドリング（3）| DL | - | 同上 |
