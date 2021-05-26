@@ -18,7 +18,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 * 第4回以降は実習用資料（`.Rmd`）をダウンロードし、穴埋め形式でスライドを作成して頂くことになります。
   * 第4回以降のスライドは授業から3日後に公開します。
 
-|回||スライド|データ|参考資料|
+|回|題目|スライド|データ|参考資料|
 |:-:|:-|:-:|:-:|:-:|
 | 1|ガイダンス| [DL](Slide/Slide01.pdf) | - | - |
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | [教科書第2章](https://www.jaysong.net/RBook/aboutR.html) <br/> [教科書第3章](https://www.jaysong.net/RBook/installation.html)  |
