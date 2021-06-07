@@ -33,7 +33,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 |11|可視化（1）| DL | DL | [教科書第17章](https://www.jaysong.net/RBook/visualization1.html) <br/> [教科書第18章](https://www.jaysong.net/RBook/visualization2.html) <br/> [教科書第19章](https://www.jaysong.net/RBook/visualization3.html) <br/>  |
 |12|可視化（2）| DL | - | 同上 |
 |13|可視化（3）| DL | - | 同上 |
-|14|データ収集とデータ分析のプロセス| DL | - | - |
+|14|期末テスト| - | - | - |
 
 ---
 
