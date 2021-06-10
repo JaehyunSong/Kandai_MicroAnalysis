@@ -27,7 +27,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 | 7|Rプログラミング基礎| [DL](Slide/Slide07.pdf) | - | [教科書第11章](https://www.jaysong.net/RBook/programming.html) <br/> [教科書第12章](https://www.jaysong.net/RBook/functions.html) |
 | 8|データハンドリング（1）| [DL](Slide/Slide08.pdf) | [Micro08.csv](Data/Micro08.csv) | [教科書第13章](https://www.jaysong.net/RBook/datahandling1.html) <br/> [教科書第14章](https://www.jaysong.net/RBook/datahandling2.html) <br/> [教科書第15章](https://www.jaysong.net/RBook/factor.html) <br/> [教科書第16章](https://www.jaysong.net/RBook/tidydata.html)|
 | 9|データハンドリング（2）| [DL](Slide/Slide09.pdf) | - | 同上 |
-|10|データハンドリング（3）| DL | - | 同上 |
+|10|データハンドリング（3）| DL | [Micro10.csv](Data/Micro10.csv) | 同上 |
 |11|可視化（1）| DL | DL | [教科書第17章](https://www.jaysong.net/RBook/visualization1.html) <br/> [教科書第18章](https://www.jaysong.net/RBook/visualization2.html) <br/> [教科書第19章](https://www.jaysong.net/RBook/visualization3.html) <br/>  |
 |12|可視化（2）| DL | - | 同上 |
 |13|可視化（3）| DL | - | 同上 |
