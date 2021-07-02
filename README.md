@@ -30,7 +30,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 |10|データハンドリング（3）| [DL](Slide/Slide10.pdf) | [Micro10.csv](Data/Micro10.csv) | 同上 |
 |11|可視化（1）| [DL](Slide/Slide11.pdf) | - | [教科書第17章](https://www.jaysong.net/RBook/visualization1.html) |
 |12|可視化（2）| [DL](Slide/Slide12.pdf) | - | [教科書第18章](https://www.jaysong.net/RBook/visualization2.html) <br/> [教科書第19章](https://www.jaysong.net/RBook/visualization3.html) |
-|13|可視化（3）| DL | - | 同上 |
+|13|可視化（3）| [DL](Slide/Slide13.pdf) | [Micro13.csv](Data/Micro13.csv) | 同上 |
 |14|期末テスト| - | - | - |
 
 ---
