@@ -33,8 +33,6 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 |13|可視化（3）| [DL](Slide/Slide13.pdf) | [Micro13.csv](Data/Micro13.csv) | 同上 |
 |14|期末テスト| - | - | - |
 
----
-
 ## NIIオンライン分析システム
 
 関大LMSに動画資料のURLがあります。詳細は動画を参照してください。
@@ -48,8 +46,6 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
 * 2回目以降
    1. https://jupyter.cs.rcos.nii.ac.jp/ へアクセス
    2. Named Seversリストから前回使用した分析環境を選択
-
----
 
 ## 教科書
 
