@@ -17,7 +17,7 @@ NIIオンライン分析システムの起動: [![NII](https://binder.cs.rcos.ni
   * <u>資料をダウンロードする</u>際は、以下のリスト上の資料クリックして表示される画面で「Download」、または「Raw」を右クリックして保存してください。
 
 |回|題目|スライド|データ|参考資料|
-|:-:|:-|:-:|:-:|:-:|
+|:-:|:-|:-:|:-|:-:|
 | 1|ガイダンス| [DL](Slide/Slide01.pdf) | - | - |
 | 2|RとRStudioの導入| [DL](Slide/Slide02.pdf) | - | - | [教科書第2章](https://www.jaysong.net/RBook/aboutR.html) <br/> [教科書第3章](https://www.jaysong.net/RBook/installation.html)  |
 | 3|Rの基本的な操作| [DL](Slide/Slide03.pdf) | [Micro02_01.csv](Data/Micro02_02.csv) <br/> [Micro02_01.xlsx](Data/Micro02_01.xlsx) | [教科書第7章](https://www.jaysong.net/RBook/rbasic.html) |
